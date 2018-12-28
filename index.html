@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5音乐相册-珠峰培训</title>
+
+    <!-- IMPORT CSS -->
+    
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/fkj.min.css">
+
+    <!-- COMPUTED REM -->
+    <script>
+        ~ function () {
+            function computed() {
+                var HTML = document.documentElement,
+                    deviceW = HTML.clientWidth,
+                    designW = 375,
+                    maxW = 750,
+                    ratio = deviceW / designW;
+                deviceW >= maxW ? ratio = maxW / designW : null;
+                HTML.style.fontSize = ratio * 100 + 'px';
+            }
+            computed();
+            window.addEventListener('resize', computed, false);
+        }();
+    </script>
+</head>
+
+<body>
+    <!-- MAIN存放所有内容：它最大宽度750 -->
+    <main class="mainBox">
+        <!-- SWIPER滑屏骨架（固定） -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- PAGE 1 -->
+                <div class="swiper-slide page1">
+                    <!-- 
+                        class="ani" 想要谁有动画，就加这个属性
+                     -->
+                    <img class="ani" src="http://pkfng866o.bkt.clouddn.com/index_1.png" alt="" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img class="ani" src="http://pkfng866o.bkt.clouddn.com/index_2.png" alt="" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img class="ani" src="http://pkfng866o.bkt.clouddn.com/index_3.png" alt="" swiper-animate-effect="slideInUp" swiper-animate-duration="1.5s" swiper-animate-delay="0.1s">
+                    <img class="ani" src="http://pkfng866o.bkt.clouddn.com/index_4.png" alt="" swiper-animate-effect="slideInLeft" swiper-animate-duration="1.3s" swiper-animate-delay="0.1s">
+                    <img class="ani" src="http://pkfng866o.bkt.clouddn.com/index_5.png" alt="" swiper-animate-effect="slideInRight" swiper-animate-duration="1.3s" swiper-animate-delay="0.1s">
+                </div>
+
+                <!-- PAGE 2 -->
+                <div class="swiper-slide page2">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_2.png" alt="" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_3.png" alt="" class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_4.png" alt="" class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_5.png" alt="" class="ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_7.png" alt="" class="ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_8.png" alt="" class="ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page2_9.png" alt="" class="ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <!-- 文本 -->
+                    <div class="text ani"  swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                        <p>劝君莫惜金缕衣</p>
+                        <p>劝君惜取少年时</p>
+                        <p>花开堪折直须折</p>
+                        <p>莫待无花空折枝</p>
+                    </div>
+                    <div class="photo">
+                        <img src="http://pkfng866o.bkt.clouddn.com/person_1.jpg" alt="">
+                    </div>
+                </div>
+
+                <!-- PAGE 3 -->
+                <div class="swiper-slide page3">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page3_1.png" alt="">
+                    <img src="http://pkfng866o.bkt.clouddn.com/page3_3.png" alt="">
+                    <div class="concat">
+                        <img src="http://pkfng866o.bkt.clouddn.com/zhou.png" alt="">
+                        <div class="text">
+                            <p>扫码领取</p>
+                            <p>课程视频</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 独立于每个界面的 -->
+        <!-- 滑动提示 -->
+        <a href="javascript:;" class="previewUP"></a>
+        <!-- 音乐 -->
+        <a href="javascript:;" class="musicBox"></a>
+        <!-- 音频MP3兼容最好 -->
+        <audio src="http://pkfng866o.bkt.clouddn.com/audio/stroke_on_everything.mp4" autoplay loop preload="none" id="musicAdudio"></audio>
+
+    </main>
+
+    <!-- IMPORT JS -->
+    <script src="js/fkj.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

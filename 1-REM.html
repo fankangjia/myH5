@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        移动端开发必须设置viewport（视口）：设置HTML页面的一些规则
+            width=device-width 设置HTML页面的宽度设备的宽度一致
+            initial-scale=1.0 设置HTML页面初始缩放比例是1(既不放大也不缩小)
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REM</title>
+
+    <!-- IMPORT CSS -->
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        /* PX像素：固定单位（一但设置了xxxPX，除非后期手动修改这个值，否则不管平屏幕大小如何改变，也不管其它样式怎么改变，否则代表的大小不会改变） */
+        /* .box {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        } */
+
+
+        /* 
+         * REM是相对单位：相对于根元素HTML的字体大小来设定的
+         *   1）如果我们编写样式的时候是以REM为单位的，后期只需要把HTML的字体大小进行修改，那么所有REM为单位的元素样式都会跟着改变 =>REM原理
+         * 
+         * REM响应式布局开发步骤
+         *   1.设置HTML的字体大小（方便计算为原则：一般设置为100PX => 1REM=100PX）
+         *   2.严格按照一个模板（例如：设计稿）的尺寸来编写样式,只不过需要把所有的样式单位都改为REM
+         *   3.编写一段JS：获取当前设备的宽度W，用其除以之前参照模板的宽度D，得到设备的缩放比例N（N=W/D），宽度为D的时候1REM=100PX，此时宽度为W，1REM=N*100PX，如果HTML的字体大小一但改变，所有以REM为单位的值都会跟着变
+         */
+        html {
+            /* 
+             * 字体默认是16PX，最小是12PX 
+             * 1REM=100PX
+             */
+            font-size: 100px;
+        }
+
+        .box {
+            /* 375的手机上元素本身的大小是如下 */
+            margin-top: .2rem;
+            /*20px*/
+            width: 2rem;
+            /*200px*/
+            height: 2rem;
+            /*200px*/
+            background: lightblue;
+        }
+    </style>
+
+    <!-- 计算REM的换算比例 -->
+    <script>
+        ~ function () {
+            function computed() {
+                // HTML:页面中的HTML标签
+                // W:当前设备的宽度
+                // D:原有设计稿的宽度
+                // N:设备宽度相对原有设计稿的缩放比例
+                var HTML = document.documentElement,
+                    W = HTML.clientWidth,
+                    D = 375,
+                    N = W / D;
+                HTML.style.fontSize = N * 100 + 'px';
+            }
+            // 开始加载页面（或者浏览器窗口大小改变）执行COMPUTED：重新计算最新的REM和PX换算比例
+            computed();
+            window.addEventListener('resize', computed, false);
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+
+
+</body>
+
+</html>
